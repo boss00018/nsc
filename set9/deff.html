@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Diffie Hellman</title>
+</head>
+<body>
+
+<h2>Diffie-Hellman Key Exchange</h2>
+
+<script>
+    let P = 23;
+    let G = 5;
+
+    let a = 6;  // Private key of User A
+    let b = 15; // Private key of User B
+
+    // Calculate public keys
+    let A = (G ** a) % P;
+    let B = (G ** b) % P;
+
+    // Calculate secret keys
+    let K1 = (B ** a) % P;
+    let K2 = (A ** b) % P;
+
+    document.write("Prime Number P: " + P + "<br>");
+    document.write("Primitive Root G: " + G + "<br>");
+
+    document.write("Public Key A: " + A + "<br>");
+    document.write("Public Key B: " + B + "<br>");
+
+    document.write("Secret Key of A: " + K1 + "<br>");
+    document.write("Secret Key of B: " + K2 + "<br>");
+
+    if (K1 == K2) {
+        document.write("Keys are Equal");
+    } else {
+        document.write("Keys are Not Equal");
+    }
+</script>
+
+</body>
+</html>
